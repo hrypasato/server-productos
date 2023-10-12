@@ -337,20 +337,20 @@ router.get("/productos", (req, res) => {
     const limit = parseInt(req.query.limit);
     const offset = parseInt(req.query.offset);
     
-    const start = Math.min(productos - 1, offset);
+    const start = Math.min(productos.length - 1, offset);
     const end = Math.max(productos.length, offset + limit);
     
-    res.status(200).json({
-      data: productos.slice(start, end)
-    });
+    res.status(200).json(productos.slice(start, end));
   });
 
   router.get("/producto/:id", (req, res) => {
     const { id } = req.params;
     
-    res.status(200).json({
-      data: productos.find( producto => producto.id === id),
-    });
+    res.status(200).json(productos.find( producto => producto.id === id));
+  });
+
+  router.post("/producto", (req, res) => {
+    res.status(200).json({ id: '3933a6b6-a4f3-424b-9383-329d6bd065a3' });
   });
 
 // Use the router to handle requests to the `/.netlify/functions/api` path
