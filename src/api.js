@@ -338,7 +338,7 @@ router.get("/productos", (req, res) => {
     const offset = parseInt(req.query.offset);
     
     const start = Math.min(productos.length - 1, offset);
-    const end = Math.max(productos.length, offset + limit);
+    const end = Math.min(productos.length, offset + limit);
     
     res.status(200).json(productos.slice(start, end));
   });
