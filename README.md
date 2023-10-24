@@ -1,6 +1,17 @@
 # server-productos
 
-Base url: https://main--server-productos.netlify.app/.netlify/functions
+### Start
+
+```bash
+export NODE_OPTIONS=--openssl-legacy-provider
+npm run build
+npm run start
+```
+
+---
+Local: http://localhost:9000/.netlify/functions
+
+Deploy: https://main--server-productos.netlify.app/.netlify/functions
 
 ### Endpoints
 

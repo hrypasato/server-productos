@@ -326,6 +326,35 @@ const productos = [
     }
   ]
 
+const tablaNutruicional = {
+  "porciones_por_empaque": 1,
+  "calorias": 98,
+  "grasa_total": "Og",
+  "grasas_trans": "Og",
+  "grasas_saturadas": "Og",
+  "carbohidratos": "24g",
+  "fibra_dietetica": "4g",
+  "azucares": "17g",
+  "sodio": "Og",
+  "potasio": "60mg",
+  "calcio": "24mg",
+  "hierro": "1mg",
+  "proteinas": "Og",
+  "calorias_de_grasa": "0",
+  "valores_diarios": {
+    "grasa_total": "0%",
+    "grasas_trans": "0%",
+    "grasas_saturadas": "0%",
+    "carbohidratos": "8%",
+    "fibra_dietetica": "15%",
+    "azucares": "0%",
+    "sodio": "2%",
+    "potasio": "2%",
+    "calcio": "2%",
+    "hierro": "2%"
+  }
+}
+
 // Define a route that responds with a JSON object when a GET request is made to the root path
 router.get("/", (req, res) => {
   res.json({
@@ -339,8 +368,9 @@ router.get("/productos", (req, res) => {
     
     const start = Math.min(productos.length - 1, offset);
     const end = Math.min(productos.length, offset + limit);
-    
-    res.status(200).json(productos.slice(start, end));
+
+    const productList = productos.slice(start, end);
+    res.status(200).json(productList.map(item => ({...item, tablaNutruicional})));
   });
 
   router.get("/producto/:id", (req, res) => {
