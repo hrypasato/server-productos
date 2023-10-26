@@ -375,8 +375,8 @@ router.get("/productos", (req, res) => {
 
   router.get("/producto/:id", (req, res) => {
     const { id } = req.params;
-    
-    res.status(200).json(productos.find( producto => producto.id === id));
+    const producto = productos.find( producto => producto.id === id);
+    res.status(200).json({ ...producto, tablaNutruicional });
   });
 
   router.post("/producto", (req, res) => {
