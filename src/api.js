@@ -371,17 +371,26 @@ router.get("/productos", (req, res) => {
 
     const productList = productos.slice(start, end);
     res.status(200).json(productList.map(item => ({...item, tablaNutruicional})));
-  });
+});
 
-  router.get("/producto/:id", (req, res) => {
-    const { id } = req.params;
-    const producto = productos.find( producto => producto.id === id);
-    res.status(200).json({ ...producto, tablaNutruicional });
-  });
+router.get("/productos/by", (req, res) => {
+  ///productos/by?name=dulces  
+  const { name } = req.query;
+    
+const productList = productos.filter(item => item.name.includes(name));
 
-  router.post("/producto", (req, res) => {
-    res.status(200).json({ id: '3933a6b6-a4f3-424b-9383-329d6bd065a3' });
-  });
+res.status(200).json(productList.map(item => ({...item, tablaNutruicional})));
+});
+
+router.get("/producto/:id", (req, res) => {
+  const { id } = req.params;
+  const producto = productos.find( producto => producto.id === id);
+  res.status(200).json({ ...producto, tablaNutruicional });
+});
+
+router.post("/producto", (req, res) => {
+  res.status(200).json({ id: '3933a6b6-a4f3-424b-9383-329d6bd065a3' });
+});
 
 // Use the router to handle requests to the `/.netlify/functions/api` path
 app.use(`/.netlify/functions/api`, router);
