@@ -7,8 +7,14 @@ export NODE_OPTIONS=--openssl-legacy-provider
 npm run build
 npm run start
 ```
+or
+
+```bash
+npm run debug
+```
 
 ---
+### Url
 Local: http://localhost:9000/.netlify/functions
 
 Deploy: https://main--server-productos.netlify.app/.netlify/functions
@@ -67,3 +73,14 @@ body:
   }
 
 ```
+
+**Listar fabricantes y nombres de los productos**
+---
+
+url: /api/list?fabricante=in
+
+método: GET
+
+params: 
+  - **name**: lista de nombres de productos
+  - **fabricante**: lista de los fabricantes
