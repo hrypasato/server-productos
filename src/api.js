@@ -479,12 +479,18 @@ router.get("/list", (req, res) => {
 
       return;
   }
+  
+  if(name !== null && name !== undefined) {
+    const result = listaNombres.filter(item => 
+      item.toLowerCase()
+      .includes(name.toLocaleLowerCase()));
 
-  const result = listaNombres.filter(item => 
-    item.toLowerCase()
-    .includes(name.toLocaleLowerCase()));
+      res.status(200).json(result);
 
-    res.status(200).json(result);
+      return;
+  }
+
+    res.status(200).json([]);
 
 });
 
