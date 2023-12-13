@@ -470,7 +470,7 @@ router.post("/producto", (req, res) => {
 router.get("/list", (req, res) => {  
   const { name, fabricante } = req.query;
 
-  if(fabricante !== null) {
+  if(fabricante) {
     const result = listaFabricantes.filter(item => 
       item.toLowerCase()
       .includes(fabricante.toLocaleLowerCase()));
