@@ -84,3 +84,11 @@ método: GET
 params: 
   - **name**: lista de nombres de productos
   - **fabricante**: lista de los fabricantes
+
+**Listar las unidades de medida**
+---
+
+url: /api/units
+
+método: GET
+

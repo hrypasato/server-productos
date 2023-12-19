@@ -494,6 +494,15 @@ router.get("/list", (req, res) => {
 
 });
 
+/**
+ * Método para lista de unidades de medida
+ */
+router.get("/units", (req, res) => {
+  const unidades = ['L', 'ML', 'CC', 'G', 'KG', 'MG', 'PCS'];
+  res.status(200).json(unidades);
+});
+
+
 // Use the router to handle requests to the `/.netlify/functions/api` path
 app.use(`/.netlify/functions/api`, router);
 
