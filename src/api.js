@@ -1,8 +1,10 @@
 const express = require("express");
 const serverless = require("serverless-http");
+const bodyParser = require('body-parser');
 
 // Create an instance of the Express app
 const app = express();
+app.use(bodyParser.json())
 
 // Create a router to handle routes
 const router = express.Router();
