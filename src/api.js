@@ -502,6 +502,19 @@ router.get("/units", (req, res) => {
   res.status(200).json(unidades);
 });
 
+/**
+ * Método que simula chatbot
+ * 
+ */
+router.post("/foods/bot_anwser", (req, res) => {
+  const { message } = req.body;
+  
+  const response = {
+    message:message.toUpperCase(),
+  }
+
+  res.status(200).json(response);
+});
 
 // Use the router to handle requests to the `/.netlify/functions/api` path
 app.use(`/.netlify/functions/api`, router);

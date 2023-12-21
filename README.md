@@ -92,3 +92,19 @@ url: /api/units
 
 método: GET
 
+
+**Mensaje al chatbot**
+---
+
+url: /api/foods/bot_anwser
+
+método: POST
+
+body:
+```json
+  {
+    "message": "Hola"
+  }
+
+```
+
